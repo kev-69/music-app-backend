@@ -7,6 +7,7 @@ const DBConnection = require('./config/dbConnection');
 
 
 const app = express();
+
 const port = process.env.PORT || 5000;
 const host = process.env.HOST || 'localhost';
 
@@ -18,7 +19,7 @@ app.use(express.json());
 DBConnection();
 
 // routes
-
+app.use("/api/user", require('./routes/userRoutes'));
 
 // listen
 app.listen(port, () => {
